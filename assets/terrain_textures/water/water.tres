@@ -1,0 +1,30 @@
+[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dmb36khfphjwl"]
+
+[ext_resource type="Shader" uid="uid://yoruqdmynwx3" path="res://shaders/Water.gdshader" id="1_q0ch6"]
+[ext_resource type="Texture2D" uid="uid://cj3s5m6eq5h0w" path="res://assets/terrain_textures/water/normal_tex.tres" id="2_77epc"]
+[ext_resource type="Texture2D" uid="uid://ccfhu6kdg4v7q" path="res://assets/terrain_textures/water/normal_tex_2.tres" id="3_wkubr"]
+[ext_resource type="Texture2D" uid="uid://cly2xb53ifnfe" path="res://assets/terrain_textures/water/wave_tex.tres" id="4_3l0f8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_q0ch6")
+shader_parameter/albedo = Color(0.0816, 0.108, 0.24, 1)
+shader_parameter/albedo2 = Color(0.59, 0.877, 1, 1)
+shader_parameter/metallic = 0.424
+shader_parameter/roughness = 0.12
+shader_parameter/wave = ExtResource("4_3l0f8")
+shader_parameter/texture_normal = ExtResource("2_77epc")
+shader_parameter/texture_normal2 = ExtResource("3_wkubr")
+shader_parameter/wave_direction = Vector2(0, 1)
+shader_parameter/wave_direction2 = Vector2(0, 1)
+shader_parameter/time_scale = 0.0017
+shader_parameter/noise_scale = 24.915
+shader_parameter/height_scale = 0.51
+shader_parameter/color_deep = Color(0.1056, 0.12056, 0.33, 1)
+shader_parameter/color_shallow = Color(0, 0.411667, 0.65, 1)
+shader_parameter/beers_law = 2.0
+shader_parameter/depth_offset = -0.75
+shader_parameter/edge_scale = 0.1
+shader_parameter/near = 1.0
+shader_parameter/far = 100.0
+shader_parameter/edge_color = Color(0, 0, 0, 1)

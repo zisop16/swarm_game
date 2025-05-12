@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2e5wptp7buw5"]
+
+[ext_resource type="Script" uid="uid://c6fbwvryeko43" path="res://scripts/weapons/axe.gd" id="1_w43rl"]
+[ext_resource type="ArrayMesh" uid="uid://c6a84pg0c0mo4" path="res://assets/axe/meshes/tomahawk.tres" id="2_8dowj"]
+[ext_resource type="Script" uid="uid://be7ogj5fww0w2" path="res://scripts/weapons/outlineable_mesh.gd" id="3_5e7b6"]
+[ext_resource type="ArrayMesh" uid="uid://dnjoh4bibv88j" path="res://assets/axe/meshes/tomahawk_outlined.tres" id="4_rxuo5"]
+[ext_resource type="ArrayMesh" uid="uid://k58qvbkmdid" path="res://assets/axe/meshes/tomahawk_base.tres" id="5_uo5s6"]
+[ext_resource type="ArrayMesh" uid="uid://wx885j43qjev" path="res://assets/axe/meshes/tomahawk_base_outlined.tres" id="6_vwcyl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w43rl"]
+friction = 0.5
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxbk6"]
+size = Vector3(0.383885, 0.167884, 0.755077)
+
+[node name="Axe" type="RigidBody3D"]
+collision_layer = 8
+collision_mask = 9
+physics_material_override = SubResource("PhysicsMaterial_w43rl")
+continuous_cd = true
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_w43rl")
+
+[node name="Model" type="Node3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, 6.20294e-09, 0.178718, -0.0368112)
+
+[node name="Tomahawk" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-8.74228e-11, 0.002, -4.44089e-19, 0, 4.44089e-19, 0.002, 0.002, 8.74228e-11, -1.94118e-26, -0.105092, 0.00209199, -0.194042)
+mesh = ExtResource("2_8dowj")
+skeleton = NodePath("")
+script = ExtResource("3_5e7b6")
+outline_mesh = ExtResource("4_rxuo5")
+metadata/_custom_type_script = "uid://be7ogj5fww0w2"
+
+[node name="Tomahawk Base" type="MeshInstance3D" parent="Model"]
+transform = Transform3D(-8.74228e-11, 0.002, 1.74846e-10, 2.44929e-19, 1.74846e-10, -0.002, 0.002, 8.74228e-11, 7.88767e-18, -0.00082222, 0.0923147, -0.125176)
+mesh = ExtResource("5_uo5s6")
+skeleton = NodePath("")
+script = ExtResource("3_5e7b6")
+outline_mesh = ExtResource("6_vwcyl")
+metadata/_custom_type_script = "uid://be7ogj5fww0w2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -7.51124e-10, 0.0205608, -0.0377445)
+shape = SubResource("BoxShape3D_sxbk6")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://juq7o6qbm5q"]
+
+[ext_resource type="Script" uid="uid://d100l5tbriw6" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Script" uid="uid://dhoixtdjwos8w" path="res://scripts/camera.gd" id="2_g2els"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g2els"]
+friction = 0.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g2els"]
+radius = 0.4
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhqgy"]
+radius = 0.4
+
+[node name="Player" type="RigidBody3D"]
+collision_layer = 2
+collision_mask = 7
+mass = 30.0
+physics_material_override = SubResource("PhysicsMaterial_g2els")
+lock_rotation = true
+continuous_cd = true
+script = ExtResource("1_3vyb7")
+
+[node name="Model" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_g2els")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_qhqgy")
+
+[node name="GroundRay" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+target_position = Vector3(0, -0.25, 0)
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74767, 0)
+script = ExtResource("2_g2els")
+
+[node name="InteractionRay" type="RayCast3D" parent="Camera"]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -4)
+collision_mask = 9
+
+[node name="Axe" type="Node3D" parent="Camera"]
+transform = Transform3D(-0.953809, 0.0427756, 0.297353, -0.0149337, 0.981836, -0.189144, -0.300043, -0.184848, -0.935845, 0.382735, -0.60684, -0.350958)
