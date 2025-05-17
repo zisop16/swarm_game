@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://juq7o6qbm5q"]
+[gd_scene load_steps=10 format=3 uid="uid://juq7o6qbm5q"]
 
 [ext_resource type="Script" uid="uid://d100l5tbriw6" path="res://scripts/player.gd" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://dhoixtdjwos8w" path="res://scripts/camera.gd" id="2_g2els"]
@@ -11,6 +11,138 @@ radius = 0.4
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qhqgy"]
 radius = 0.4
+
+[sub_resource type="Animation" id="Animation_dqkch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera/WeaponHolder/WindSword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.43, -0.781, -0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/WeaponHolder/WindSword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.308923, 3.40514, 0.26529)]
+}
+
+[sub_resource type="Animation" id="Animation_qhqgy"]
+resource_name = "swing_wind"
+length = 0.316668
+step = 0.00833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera/WeaponHolder/WindSword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.0833333, 0.116667, 0.133333, 0.141667, 0.15, 0.166667, 0.241667, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1.5, 1, 1),
+"update": 0,
+"values": [Vector3(0.43, -0.781, -0.38), Vector3(0.305009, -0.612792, -0.380171), Vector3(0.319131, -0.612792, -0.38813), Vector3(0.315299, -0.612792, -0.42129), Vector3(0.521667, -0.612792, -0.603884), Vector3(0.397051, -0.612792, -0.786287), Vector3(-0.116051, -0.60445, -0.902433), Vector3(-0.566, -0.532, -0.657), Vector3(-0.421, -0.532, -0.657), Vector3(0.43, -0.781, -0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/WeaponHolder/WindSword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.0833333, 0.116667, 0.133333, 0.141667, 0.15, 0.166667, 0.241667, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1.5, 1, 1),
+"update": 0,
+"values": [Vector3(0.308923, 3.40514, 0.26529), Vector3(0.0344849, 2.97156, 0.228939), Vector3(0.060656, 2.97898, 0.384695), Vector3(-0.0715585, 3.71232, 0.832522), Vector3(0.21293, 4.02473, 0.897099), Vector3(0.223402, 4.88692, 1.28282), Vector3(0.178024, 5.66708, 1.4399), Vector3(0.178024, 5.93936, 1.4399), Vector3(0.178024, 5.72119, 1.4399), Vector3(0.308923, 3.40514, 0.26529)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0833333, 0.166667, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"activate_sword_hitbox"
+}, {
+"args": [],
+"method": &"deactivate_sword_hitbox"
+}, {
+"args": [],
+"method": &"end_swing"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_qlg0r"]
+resource_name = "swing_wind_2"
+length = 0.316668
+step = 0.00833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera/WeaponHolder/WindSword:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0583333, 0.0833333, 0.166667, 0.208333, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 2, 1),
+"update": 0,
+"values": [Vector3(0.43, -0.781, -0.38), Vector3(0.10225, -0.781454, -0.441369), Vector3(-0.275139, -0.781454, -0.583181), Vector3(-0.583576, -0.57792, -0.571101), Vector3(0.509889, -0.577921, -0.59357), Vector3(0.521537, -0.577921, -0.596413), Vector3(0.43, -0.781, -0.38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera/WeaponHolder/WindSword:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0583333, 0.0833333, 0.166667, 0.208333, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1, 1.5, 1, 0.5, 1),
+"update": 0,
+"values": [Vector3(0.308923, -2.87805, 0.26529), Vector3(0.371658, -3.01185, -0.12464), Vector3(0.150375, -2.15082, -0.282724), Vector3(-0.0731958, -3.01292, -0.363257), Vector3(0.616101, -5.6409, -1.49924), Vector3(0.713491, -5.30824, -1.16937), Vector3(0.308923, -2.87805, 0.26529)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0833333, 0.166667, 0.316667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"activate_sword_hitbox"
+}, {
+"args": [],
+"method": &"deactivate_sword_hitbox"
+}, {
+"args": [],
+"method": &"end_swing"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qlg0r"]
+_data = {
+&"RESET": SubResource("Animation_dqkch"),
+&"swing_wind": SubResource("Animation_qhqgy"),
+&"swing_wind_2": SubResource("Animation_qlg0r")
+}
 
 [node name="Player" type="RigidBody3D"]
 collision_layer = 2
@@ -27,6 +159,7 @@ mesh = SubResource("CapsuleMesh_g2els")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_qhqgy")
 
 [node name="GroundRay" type="RayCast3D" parent="."]
@@ -42,5 +175,15 @@ unique_name_in_owner = true
 target_position = Vector3(0, 0, -4)
 collision_mask = 9
 
-[node name="Axe" type="Node3D" parent="Camera"]
+[node name="WeaponHolder" type="Node3D" parent="Camera"]
+
+[node name="Axe" type="Node3D" parent="Camera/WeaponHolder"]
 transform = Transform3D(-0.953809, 0.0427756, 0.297353, -0.0149337, 0.981836, -0.189144, -0.300043, -0.184848, -0.935845, 0.382735, -0.60684, -0.350958)
+
+[node name="WindSword" type="Node3D" parent="Camera/WeaponHolder"]
+transform = Transform3D(-0.952461, 0.176704, -0.248175, 0.249777, 0.919334, -0.304033, 0.174432, -0.351568, -0.919767, 0.43, -0.781, -0.38)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qlg0r")
+}

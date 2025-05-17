@@ -1,0 +1,41 @@
+[gd_resource type="ArrayMesh" load_steps=3 format=3 uid="uid://bbh22bmxd7xw8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qxb6d"]
+transparency = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.57, 0.598667, 1, 1)
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_6xwy8"]
+_surfaces = [{
+"aabb": AABB(-0.866025, 0, -1, 1.73205, 1e-05, 1.5),
+"format": 34896613377,
+"index_count": 9,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 127, 0, 0, 170, 170, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 127, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[resource]
+resource_name = "triangle_Circle"
+_surfaces = [{
+"aabb": AABB(-0.866025, 0, -1, 1.73205, 1e-05, 1.5),
+"attribute_data": PackedByteArray(255, 127, 255, 127, 38, 17, 255, 191, 255, 127, 0, 0, 216, 238, 255, 191),
+"format": 34896613399,
+"index_count": 9,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0),
+"material": SubResource("StandardMaterial3D_qxb6d"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(255, 127, 0, 0, 170, 170, 255, 191, 0, 0, 0, 0, 255, 255, 255, 191, 255, 127, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 255, 255, 255, 191, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_6xwy8")

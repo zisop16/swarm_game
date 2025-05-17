@@ -1,0 +1,29 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://b8rswblqtt354"]
+
+[ext_resource type="Texture2D" uid="uid://dn6a7ye4odh5l" path="res://assets/swords/Optimus sword color_sword_d_green2.jpg" id="1_hivnp"]
+[ext_resource type="Texture2D" uid="uid://h3x5nu17uga2" path="res://assets/swords/Optimus sword color_WEP_Op_Sword_Exp.png" id="2_t75bj"]
+[ext_resource type="Shader" uid="uid://bph37kg3pwqy1" path="res://shaders/outline.gdshader" id="3_c8dtf"]
+[ext_resource type="Texture2D" uid="uid://dec5e17syfehh" path="res://assets/swords/Optimus sword color_WEP_Op_Sword_Nrm.png" id="4_bhuqc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lare8"]
+render_priority = 0
+shader = ExtResource("3_c8dtf")
+shader_parameter/normal_threshold = 1.9265
+shader_parameter/depth_threshold = 0.615
+shader_parameter/depth_artifact_correction_coef = 2.0
+shader_parameter/outline_width = 1.255
+shader_parameter/outline_color = Color(0.65, 1, 0.7025, 1)
+shader_parameter/enabled = true
+
+[resource]
+resource_name = "Blade_Green2"
+next_pass = SubResource("ShaderMaterial_lare8")
+cull_mode = 2
+albedo_texture = ExtResource("1_hivnp")
+metallic = 1.0
+metallic_texture = ExtResource("2_t75bj")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("2_t75bj")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_bhuqc")

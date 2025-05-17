@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsg5rcr122dml"]
+
+[ext_resource type="Shader" uid="uid://djbmrbgrkftxa" path="res://assets/blood_splatter/blood.tres" id="1_uejm7"]
+[ext_resource type="Material" uid="uid://damlnsj130e3e" path="res://assets/blood_splatter/blood_splatter.tres" id="2_qvghc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h4sv8"]
+render_priority = 0
+shader = ExtResource("1_uejm7")
+shader_parameter/ColorParameter = Color(0.46, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_q885a"]
+size = Vector2(0.5, 0.5)
+
+[sub_resource type="Animation" id="Animation_uejm7"]
+resource_name = "splatter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("blood:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qvghc"]
+_data = {
+&"splatter": SubResource("Animation_uejm7")
+}
+
+[node name="BloodSplatter" type="Node3D"]
+
+[node name="blood" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+material_override = SubResource("ShaderMaterial_h4sv8")
+emitting = false
+amount = 100
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.9
+process_material = ExtResource("2_qvghc")
+draw_pass_1 = SubResource("QuadMesh_q885a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qvghc")
+}
+autoplay = "splatter"

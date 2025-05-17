@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c6fbwvryeko43" path="res://scripts/weapons/axe.gd" id="1_w43rl"]
 [ext_resource type="ArrayMesh" uid="uid://c6a84pg0c0mo4" path="res://assets/axe/meshes/tomahawk.tres" id="2_8dowj"]
-[ext_resource type="Script" uid="uid://be7ogj5fww0w2" path="res://scripts/weapons/outlineable_mesh.gd" id="3_5e7b6"]
+[ext_resource type="Script" uid="uid://be7ogj5fww0w2" path="res://scripts/weapons/swappable_mesh.gd" id="3_5e7b6"]
 [ext_resource type="ArrayMesh" uid="uid://dnjoh4bibv88j" path="res://assets/axe/meshes/tomahawk_outlined.tres" id="4_rxuo5"]
 [ext_resource type="ArrayMesh" uid="uid://k58qvbkmdid" path="res://assets/axe/meshes/tomahawk_base.tres" id="5_uo5s6"]
 [ext_resource type="ArrayMesh" uid="uid://wx885j43qjev" path="res://assets/axe/meshes/tomahawk_base_outlined.tres" id="6_vwcyl"]
@@ -14,8 +14,6 @@ friction = 0.5
 size = Vector3(0.383885, 0.167884, 0.755077)
 
 [node name="Axe" type="RigidBody3D"]
-collision_layer = 8
-collision_mask = 9
 physics_material_override = SubResource("PhysicsMaterial_w43rl")
 continuous_cd = true
 contact_monitor = true
@@ -30,7 +28,7 @@ transform = Transform3D(-8.74228e-11, 0.002, -4.44089e-19, 0, 4.44089e-19, 0.002
 mesh = ExtResource("2_8dowj")
 skeleton = NodePath("")
 script = ExtResource("3_5e7b6")
-outline_mesh = ExtResource("4_rxuo5")
+swapped_mesh = ExtResource("4_rxuo5")
 metadata/_custom_type_script = "uid://be7ogj5fww0w2"
 
 [node name="Tomahawk Base" type="MeshInstance3D" parent="Model"]
@@ -38,9 +36,11 @@ transform = Transform3D(-8.74228e-11, 0.002, 1.74846e-10, 2.44929e-19, 1.74846e-
 mesh = ExtResource("5_uo5s6")
 skeleton = NodePath("")
 script = ExtResource("3_5e7b6")
-outline_mesh = ExtResource("6_vwcyl")
+swapped_mesh = ExtResource("6_vwcyl")
 metadata/_custom_type_script = "uid://be7ogj5fww0w2"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-8.74228e-08, 2, -8.74228e-08, 0, -8.74228e-08, -2, -2, -8.74228e-08, 3.82137e-15, -7.51124e-10, 0.0205608, -0.0377445)
 shape = SubResource("BoxShape3D_sxbk6")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

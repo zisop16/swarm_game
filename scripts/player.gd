@@ -5,6 +5,8 @@ extends RigidBody3D
 @onready var ground_ray: RayCast3D = $GroundRay
 @onready var interaction_ray: RayCast3D = %InteractionRay
 @onready var model: Node3D = $Model
+@onready var anim_player: AnimationPlayer = $AnimationPlayer
+@onready var weapon_holder: Node3D = $Camera/WeaponHolder
 var speed_control: float = 25
 var jump_speed: float = 8
 var max_ground_speed: float = 10
@@ -15,7 +17,8 @@ var weapons: Array[Weapon] = []
 const inventory_size: int = 3
 
 @onready var attachments: Dictionary[Weapon.ID, Node3D] = {
-	Weapon.ID.axe: $Camera/Axe
+	Weapon.ID.axe: $Camera/WeaponHolder/Axe,
+	Weapon.ID.wind_sword: $Camera/WeaponHolder/WindSword
 }
 
 func _ready() -> void:
@@ -73,8 +76,6 @@ func handle_jump():
 	if linear_velocity.y < 0:
 		linear_velocity.y = 0
 	apply_impulse(jump_impulse)
-	if not on_floor() and can_coyote_jump():
-		print("Coyote jump")
 
 func jump_on_cooldown() -> bool:
 	return (Global.time - last_time_jumped) < jump_cooldown
@@ -165,6 +166,19 @@ func handle_inventory_inputs():
 	if equipped_weapon() != null:
 		equipped_weapon().visible = true
 
+var weapon_theta: float = 0
+func animate_weapon_holder():
+	var horiz_speed := linear_velocity.slide(Vector3.UP).length()
+	var oscillation_amplitude := horiz_speed * .003
+	var oscillation_frequency: float = 3 * horiz_speed ** .5
+	if not on_floor():
+		oscillation_frequency /= 3.5
+		oscillation_amplitude /= 1.2
+	var theta_diff = oscillation_frequency * get_physics_process_delta_time()
+	weapon_theta += theta_diff
+	var oscillation_direction := (Vector3.UP + Vector3.MODEL_FRONT * .5).normalized()
+	weapon_holder.position = oscillation_direction * sin(weapon_theta) * oscillation_amplitude
+
 func _physics_process(delta: float) -> void:
 	var movement_force := calculate_movement_force()
 	apply_central_force(movement_force)
@@ -175,6 +189,7 @@ func _physics_process(delta: float) -> void:
 	determine_interaction_target()
 	handle_interaction()
 	handle_attack()
+	animate_weapon_holder()
 
 func _process(delta: float) -> void:
 	handle_inventory_inputs()
@@ -202,3 +217,34 @@ func dequip_weapon():
 		return
 	equipped_weapon().detach()
 	weapons[equipped_slot] = null
+
+var sword_anim_history: int = 0
+func swing_wind_sword():
+	var choice := randi_range(0, sword_anim_history)
+	if choice >= 0:
+		anim_player.play("swing_wind")
+		sword_anim_history -= 1
+	else:
+		anim_player.play("swing_wind_2")
+		sword_anim_history += 1
+
+var swinging := false
+func swing():
+	var id = equipped_weapon().id
+	match id:
+		Weapon.ID.wind_sword:
+			swing_wind_sword()
+		_:
+			assert(false, "Attempted to swing a weapon that wasn't implemented")
+	swinging = true
+
+func end_swing():
+	swinging = false
+
+func activate_sword_hitbox():
+	var sword: Swingable = equipped_weapon()
+	sword.activate_hitbox()
+
+func deactivate_sword_hitbox():
+	var sword: Swingable = equipped_weapon()
+	sword.deactivate_hitbox()

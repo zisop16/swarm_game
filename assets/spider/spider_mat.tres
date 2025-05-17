@@ -1,0 +1,22 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://bmrs3xs505613"]
+
+[ext_resource type="Texture2D" uid="uid://6i4pw2nuldye" path="res://assets/spider/body_albedo.jpeg" id="1_oev14"]
+[ext_resource type="Texture2D" uid="uid://tn07x3flhj04" path="res://assets/spider/body_AO.jpeg" id="2_3vrhv"]
+[ext_resource type="Texture2D" uid="uid://bahx7gnapi8r1" path="res://assets/spider/body_metallic.jpeg" id="3_jnh8b"]
+[ext_resource type="Texture2D" uid="uid://buu3fjci0ocxx" path="res://assets/spider/body_normal.jpeg" id="4_88puo"]
+[ext_resource type="Texture2D" uid="uid://cw7chi67tphhb" path="res://assets/spider/body_roughness.jpeg" id="5_qqlmq"]
+
+[resource]
+resource_name = "spidershader"
+cull_mode = 2
+albedo_texture = ExtResource("1_oev14")
+metallic = 1.0
+metallic_texture = ExtResource("3_jnh8b")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_qqlmq")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_scale = 2.0
+normal_texture = ExtResource("4_88puo")
+ao_enabled = true
+ao_texture = ExtResource("2_3vrhv")
