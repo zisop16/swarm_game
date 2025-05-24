@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=4 uid="uid://domphcne554g4"]
+
+[ext_resource type="Material" uid="uid://cvbjiwmkmb7nq" path="res://scenes/forest/foliage/grass.tres" id="1_0wv0p"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0wv0p"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"format": 34896613377,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/38AAAAAAAD/f////v8AAP9/AAD//wAA/3/+/wAAAAAAAAAA/38AAP///v//fwAA//8AAP9/AAAAAP7//38AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_0nc05"]
+resource_name = "plane_Plane_007"
+_surfaces = [{
+"aabb": AABB(-1, -1, -1, 2, 2, 2),
+"attribute_data": PackedByteArray("AAD/////AAD/////AAAAAAAA/////wAA/////wAAAAA="),
+"format": 34896613399,
+"index_count": 12,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUA"),
+"material": ExtResource("1_0wv0p"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/38AAAAA/7//f////v//v/9/AAD///+//3/+/wAA/78AAAAA/38AgP///v//fwCA//8AAP9/AIAAAP7//38AgP9/////f////3////9/////f////3////9/////f///")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_0wv0p")
+
+[node name="Grass" type="Node3D"]
+
+[node name="Grass" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("ArrayMesh_0nc05")
+skeleton = NodePath("")

@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://i4530fmjfaxo"]
+[gd_resource type="VisualShader" load_steps=21 format=3 uid="uid://dry3dm4sdvukq"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_xmodr"]
 parameter_name = "ColorParameter"
@@ -192,7 +192,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-49.1523, 114.741)
 nodes/vertex/2/node = SubResource("VisualShaderNodeBillboard_3w3hf")
 nodes/vertex/2/position = Vector2(-180, 600)
 nodes/vertex/3/node = SubResource("VisualShaderNodeInput_tmsm5")

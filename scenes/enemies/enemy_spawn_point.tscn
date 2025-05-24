@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0lc4ndacfnvd"]
+
+[ext_resource type="Script" uid="uid://cvms2guixhjt2" path="res://scripts/enemies/EnemySpawnPoint.cs" id="1_dv62h"]
+[ext_resource type="PackedScene" uid="uid://caso8wb3rns5i" path="res://scenes/enemies/mutant.tscn" id="2_ihvy8"]
+[ext_resource type="PackedScene" uid="uid://bugbf7acl1cyw" path="res://scenes/enemies/spider.tscn" id="3_dv62h"]
+[ext_resource type="PackedScene" uid="uid://dfs25ej4f2kxp" path="res://scenes/enemies/zombie.tscn" id="4_3vrlc"]
+
+[node name="EnemySpawnPoint" type="Node3D"]
+script = ExtResource("1_dv62h")
+Enemies = Dictionary[int, PackedScene]({
+0: ExtResource("2_ihvy8"),
+1: ExtResource("3_dv62h"),
+2: ExtResource("4_3vrlc")
+})

@@ -64,7 +64,7 @@ void fragment() {
 	vec3 emission_tex = texture(texture_emission, base_uv).rgb;
 	// Emission Operator: Add
 	EMISSION = (emission.rgb + emission_tex) * emission_energy;
-	
+
 	float noise_val = texture(erosion_noise, UV).r;
 	float curve_progress = erosion_amount;
 	float low_alpha = texture(low_curve, vec2(curve_progress)).r;

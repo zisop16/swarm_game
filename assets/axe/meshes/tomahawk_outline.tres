@@ -8,6 +8,6 @@ shader = ExtResource("1_88cky")
 shader_parameter/normal_threshold = 0.3495
 shader_parameter/depth_threshold = 1.41
 shader_parameter/depth_artifact_correction_coef = 1.36
-shader_parameter/outline_width = 1.69
+shader_parameter/outline_width = 5.0
 shader_parameter/outline_color = Color(0.974333, 1, 0.78, 1)
 shader_parameter/enabled = true

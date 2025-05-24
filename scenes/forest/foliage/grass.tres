@@ -1,0 +1,33 @@
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://cvbjiwmkmb7nq"]
+
+[ext_resource type="Shader" uid="uid://c68lkgjtwlkog" path="res://shaders/grass.gdshader" id="1_6i6nn"]
+[ext_resource type="Texture2D" uid="uid://bws4n7adwiwm5" path="res://scenes/forest/foliage/grass3.png" id="2_1ujpb"]
+
+[sub_resource type="Curve" id="Curve_0wv0p"]
+_data = [Vector2(0, 0), 0.0, 3.05426, 0, 0, Vector2(0.992806, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_0nc05"]
+texture_mode = 1
+curve = SubResource("Curve_0wv0p")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5qy7g"]
+frequency = 0.007
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_sv0sg"]
+seamless = true
+seamless_blend_skirt = 0.138
+noise = SubResource("FastNoiseLite_5qy7g")
+
+[resource]
+render_priority = -2
+shader = ExtResource("1_6i6nn")
+shader_parameter/tint = Color(0.2881, 0.63181, 0.67, 1)
+shader_parameter/texture_albedo = ExtResource("2_1ujpb")
+shader_parameter/scale_decrease = 2.025
+shader_parameter/relative_wind_strength = SubResource("CurveTexture_0nc05")
+shader_parameter/wind_noise = SubResource("NoiseTexture2D_sv0sg")
+shader_parameter/wind_strength = 1.17
+shader_parameter/wind_frequency = 1.6
+shader_parameter/wind_turbulence = 0.026
+shader_parameter/positional_wind = 0.726

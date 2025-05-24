@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=23 format=3 uid="uid://dw4j13ldupfbw"]
+[gd_resource type="VisualShader" load_steps=23 format=3 uid="uid://bvevng8bh6n5e"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_7f1t1"]
 parameter_name = "ColorParameter"

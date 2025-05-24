@@ -49,10 +49,9 @@ _data = {
 [node name="BloodSplatter" type="Node3D"]
 
 [node name="blood" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_h4sv8")
 emitting = false
-amount = 100
+amount = 150
 lifetime = 2.0
 one_shot = true
 explosiveness = 0.9
